@@ -1,1 +1,23 @@
+cat << 'EOF' > .gitignore
+# Python virtual environment
 venv/
+env/
+ENV/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local data & test artifacts (optional - omit if you want to keep test files)
+*.pkt
+inspect_pkt.py
+
+# Editor / OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+EOF
