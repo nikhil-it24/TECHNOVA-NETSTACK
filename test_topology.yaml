@@ -1,0 +1,37 @@
+topology:
+  name: "STP Test Triangle"
+  switches:
+    - id: "SW1"
+      bridge_priority: 4096
+      mac_address: "00:11:22:33:44:55"
+      ports:
+        - id: "Gi0/1"
+          cost: 4
+        - id: "Gi0/2"
+          cost: 4
+
+    - id: "SW2"
+      bridge_priority: 32768
+      mac_address: "00:11:22:33:44:66"
+      ports:
+        - id: "Gi0/1"
+          cost: 4
+        - id: "Gi0/2"
+          cost: 4
+
+    - id: "SW3"
+      bridge_priority: 32768
+      mac_address: "00:11:22:33:44:77"
+      ports:
+        - id: "Gi0/1"
+          cost: 4
+        - id: "Gi0/2"
+          cost: 4
+
+  links:
+    - source: "SW1:Gi0/1"
+      target: "SW2:Gi0/1"
+    - source: "SW2:Gi0/2"
+      target: "SW3:Gi0/1"
+    - source: "SW3:Gi0/2"
+      target: "SW1:Gi0/2"
